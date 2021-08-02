@@ -1,0 +1,38 @@
+#3 states: infected, healthy, dead 
+
+#factors: F?, vaccine?, hostpital?, age?, underlying conditions?location? => matrix 
+
+''' transition matrix: 
+0.9, 0.05, 0.05 x, y,z 
+0.2, 0.4, 0.4
+0,   0,    1 '''
+
+#row 1
+initial rate = (0.923, 0.037, 0.04)
+
+F(0) = (0.82,  0.09984, 0,000016)
+F(1) = (0.45, 0.549992, 0.000008)
+
+# F(n) = x*1.1+/(1+n) , y, z*1.1/(1+n) => n increases => x and z decreases, n decreases => y increases (x+y+z = 1)
+
+# V(1) = (x/100), y , (z/100)  
+
+#H(0,1) = (x*1.2, y,   z*1.1)
+
+#A(n) = (x*(1+n/1000), y , z*(1+n/1000)
+
+
+#row 2 
+initial rate = (0.0001, 0.9999 , 0)
+
+# F(n) = x*9000/(1+n) , y, z*4/(1+n) => n increases => x and z decreases, n decreases => y increases (x+y+z = 1)
+
+# V(1) = (x/100), y , (z/100)  
+
+#V(0,1) = (x*1.2, y,   z*1.1)
+
+#A(n) = (x*(1+n/1000), y , z*(1+n/1000)
+
+#row 3 
+
+0,0,1
