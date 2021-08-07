@@ -8,12 +8,28 @@ Hvar = 0
 Avar = 18 
 
 def F(num, l):
-    l[0] = l[0]*1.1/(1+num)
-    l[2] = l[2]*1.1/(1+num)
-    l[1] = 1 -l[0]-l[2]
+    x = l[0]
+    y = l[1]
+    z = l[2]
+    x = x*1.1/(1+num)
+    y = y*1.1/(1+num)
+    z = 1 -x-y
 
-    return l 
+    return [x,y,z]
 
-print(F(Fvar, infected_initial_rate))
+def V(num,l):
+    x = l[0]
+    y = l[1]
+    z = l[2]
+    if num == 1:
+        x/=10
+        z/=10
+        y = 1 -x- z
+    return [x,y,z]
 
-    
+
+test = (V(Vvar, infected_initial_rate))
+
+print(test)
+
+
