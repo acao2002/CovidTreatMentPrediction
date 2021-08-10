@@ -58,24 +58,17 @@ def A(num, l):
 def create_transition_matrix(il, hl, Fvar, Vvar, Hvar, Avar):
     
     il = F(Fvar,il, 0)
-    print(il)
     il = V(Vvar,il)
-    print(il)
     il = H(Hvar,il)
-    print(il)
     il = A(Avar,il)
-    print("il")
-    print(il)
 
     hl = F(Fvar, hl, 1)
-    print(hl)
-  
     hl = V(Vvar, hl)
-    print(hl)
     hl = H(Hvar,hl)
-    print(hl)
     hl = A(Avar, hl)
-    print(hl)
+   
+
+    return [il[0], hl[0], 0], [il[1], hl[1], 0], [il[2], hl[2], 1] 
 
 class transition_matrix:
 
@@ -93,9 +86,9 @@ class transition_matrix:
         self.Avar = Avar
     
     def create_matrix(self):
-        create_transition_matrix(self.il, self.hl, self.Fvar, self.Vvar, self.Hvar,self.Avar)
+        return create_transition_matrix(self.il, self.hl, self.Fvar, self.Vvar, self.Hvar,self.Avar)
 
 
 #transition_matrix = transition_matrix(1,1,0,18)
 
-#transition_matrix.create_matrix()
+#print(transition_matrix.create_matrix())
