@@ -8,4 +8,8 @@ class model:
 
     def predict(self, state, days):
         self.matrix[state] = 1
-        
+        for i in range(days-1):
+            self.Pmatrix = np.mathmul(self.Pmatrix, self.Pmatrix)
+        prediction = np.matmul(self.Pmatrix, self.matrix)
+        return prediction
+    
