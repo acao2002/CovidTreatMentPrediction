@@ -68,7 +68,7 @@ def create_transition_matrix(il, hl, Fvar, Vvar, Hvar, Avar):
     hl = A(Avar, hl)
    
 
-    return [il[0], hl[0], 0], [il[1], hl[1], 0], [il[2], hl[2], 1] 
+    return [[il[0], hl[0], 0], [il[1], hl[1], 0], [il[2], hl[2], 1]]
 
 class transition_matrix:
 
