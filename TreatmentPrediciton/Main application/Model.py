@@ -16,11 +16,11 @@ class model:
         return prediction
     
 
-transition_matrix = transition_matrix(0, 0 ,1,18)
+transition_matrix = transition_matrix(1, 1,1,12)
 
 Pmatrix = transition_matrix.create_matrix()
 print(Pmatrix)
-state = 0
+state = 1
 days = 1
 model = model(Pmatrix)
 print(model.predict(state, days))

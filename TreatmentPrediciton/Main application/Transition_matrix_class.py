@@ -7,11 +7,11 @@ def F(num, l, state):  #state = 0(sick) or 1(healthy)
     z = l[2]
     if state == 0:
         x = x*1.01/(1+num)
-        z = z*1.01/(1+num)
+        z = z*1.001/(1+num)
         y = 1 -x-z
     else: 
         x = x*9000/(1+num)
-        z = z+1/100*(1+num)
+        z = z+1/1000*(1+num)
         y = 1 -x-z
     return [x,y,z]
 
@@ -39,7 +39,7 @@ def H(num, l):
 
     else: 
         x = x*0.5
-        z = (1 - x - y)*0.9
+        z = z*0.5
         y = 1-x-z
     
     return [x,y,z]
@@ -50,7 +50,7 @@ def A(num, l):
     y = l[1]
     z = l[2]
     x = x + (1-x)*(num - 20)/500
-    z = (1-x-y) + (1-z)*(num - 20)/1000
+    z = z*num/100
     y = 1-x-z
 
     return[x,y,z]    
@@ -89,6 +89,6 @@ class transition_matrix:
         return create_transition_matrix(self.il, self.hl, self.Fvar, self.Vvar, self.Hvar,self.Avar)
 
 
-#transition_matrix = transition_matrix(1,1,0,18)
+#transition_matrix = transition_matrix(0,0,1,18)
 
 #print(transition_matrix.create_matrix())
